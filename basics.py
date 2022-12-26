@@ -5,11 +5,14 @@ import face_recognition
 # basics.py is used to demonstrate the basic functionality of image detection
 # using the ImagesBasic folder to compare images and outputting either true or false 
 # if the images are the same person
+
+# First step is to import images and convert them to RGB formats
 imgElon = face_recognition.load_image_file('ImagesBasic/Elon Musk.jpg')
 imgElon = cv2.cvtColor(imgElon,cv2.COLOR_BGR2RGB)
 imgTest = face_recognition.load_image_file('ImagesBasic/Elon Test.jpg')
 imgTest = cv2.cvtColor(imgTest,cv2.COLOR_BGR2RGB)
  
+# Find encoding for each image
 faceLoc = face_recognition.face_locations(imgElon)[0]
 encodeElon = face_recognition.face_encodings(imgElon)[0]
 cv2.rectangle(imgElon,(faceLoc[3],faceLoc[0]),(faceLoc[1],faceLoc[2]),(255,0,255),2)
